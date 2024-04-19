@@ -11,7 +11,7 @@ import java.time.Duration;
 
 public class MainPage {
     //Локатор для заголовока страницы Яндекс
-    private final By headerLogoYandex = By.xpath("//img[@alt='Yandex']");
+    private final By headerLogoYandex = By.xpath("//a[@class='Header_LogoYandex__3TSOI']");
     //Локатор для заголовока страницы Скутер
     private final By headerLogoScooter = By.xpath("//img[@alt='Scooter']");
     //Локатор для кнопки "Заказать" вверху страницы
@@ -45,8 +45,6 @@ public class MainPage {
                 break;
             }
         }
-        // Ждем загрузки страницы на новой вкладке, пока заголовк не будет "Яндекс"
-        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.titleContains("Яндекс"));
     }
 
     //Метод клика по заголовку "Самокат"
@@ -72,6 +70,7 @@ public class MainPage {
     public void clickOrderStatusButton(String numberOfOrder) {
         driver.findElement(orderStatusButton).click();
         driver.findElement(orderStatusField).sendKeys(numberOfOrder);
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(goButton));
         driver.findElement(goButton).click();
     }
 

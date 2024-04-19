@@ -4,13 +4,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.practicum.page.MainPage;
 import ru.yandex.practicum.page.OrderStatusPage;
 import ru.yandex.practicum.util.WebDriverUtil;
-
-import java.time.Duration;
 
 import static org.junit.Assert.*;
 
